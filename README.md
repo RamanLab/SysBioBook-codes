@@ -2,7 +2,7 @@
 
 This repository contains companion codes, developed for use with the book:
 
-<img align="right" width="200"  src="https://images.routledge.com/common/jackets/amazon/978113859/9781138597327.jpg">
+<a href="https://www.routledge.com/An-Introduction-to-Computational-Systems-Biology-Systems-Level-Modelling/Raman/p/book/9781138597327"><img align="right" width="200"  src="https://images.routledge.com/common/jackets/amazon/978113859/9781138597327.jpg"></a>
 
 [An Introduction to Computational Systems Biology: Systems-Level Modelling of Cellular Networks](https://www.routledge.com/An-Introduction-to-Computational-Systems-Biology-Systems-Level-Modelling/Raman/p/book/9781138597327)  
 **Karthik Raman (2021)** | CRC Press, Boca Raton, FL  
