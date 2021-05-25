@@ -8,6 +8,10 @@ This repository contains companion codes, developed for use with the book:
 **Karthik Raman (2021)** | CRC Press, Boca Raton, FL  
 ISBN 9781138597327 (hardback) | ISBN 9780429486951 (ebook)  
 
+### Suggest a new piece of code
+
+* Create a new GitHub issue [here](https://github.com/RamanLab/SysBioBook-codes/issues/new)!
+
 ### Get in touch with the author
 
 * [CRC Author page](https://www.routledge.com/authors/i20557-karthik-raman)
