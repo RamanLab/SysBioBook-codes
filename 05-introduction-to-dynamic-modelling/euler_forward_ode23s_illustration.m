@@ -7,9 +7,9 @@
 % Running this piece of code generates a plot with three curves:
 % 1 - a blue curve (points denoted by carets) with ∆t = 1/40
 % 2 - a green curve (points denoted by circles) with ∆t = 1/100
-% 3 - a black curve, obtained by using MATLAB ODE solver, ode15s
+% 3 - a black curve, obtained by using MATLAB ODE solver, ode23s
 %
-% See also ODE15S.
+% See also ODE23S.
 
 %% Make three plots to examine the effect of ∆t
 [time, x_all] = ef(1/40);
@@ -21,10 +21,10 @@ hold on
 [time, x_all] = ef(1/100);
 plot(time, x_all, 'go-')
 
-[t, y]=ode15s(@f, [0 0.5], 1);
+[t, y]=ode23s(@f, [0 0.5], 1);
 plot(t, y, 'k-')
 
-legend('∆t = 1/40', '∆t = 1/100', 'ode15s');
+legend('∆t = 1/40', '∆t = 1/100', 'ode23s');
 
 %% The function xdot encoding our ODE
 function xdot = f(t, x)
