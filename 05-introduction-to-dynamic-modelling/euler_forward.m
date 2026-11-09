@@ -10,28 +10,27 @@ function [t_out, x_out] = euler_forward(odefun, t_f, x0, h)
 %    odefun:  Function handle, that points to a function that computes 
 %               xdot = f(t, x)
 %    t_f:     Final time-point until which the integration must be performed
-%    x0:      Initial value of x at t = 0
+%    x0:      Initial value of x at t = 0 (a scalar or a column vector)
 %    h:       The step-size of ∆t
 %
 % OUTPUT:
-%    t_out:   The time-points at which the integration has been performed 
-%    x_out:   Final value of the variable x at the time-points t_out
+%    t_out:   The time-points at which the integration has been performed,
+%               0, h, 2h, ..., t_f (as a column vector)
+%    x_out:   Values of x at the time-points t_out, one row per time-point
 %
 % See also ode15s.
 
-nIter = round(t_f/h) ; 
-x_out = zeros(nIter, 1) ;
+nIter = round(t_f/h) ;
+t_out = h*(0:nIter)' ;
+x_out = zeros(nIter+1, numel(x0)) ;
 
-x = x0;
-for i = 1:nIter 
-  x_out(i) = x ;
-  dxdt = odefun(t, x);
-  x = x + dxdt*dt;    
+x = x0(:);
+x_out(1, :) = x' ;
+for i = 1:nIter
+  dxdt = odefun(t_out(i), x);
+  x = x + dxdt(:)*h;
+  x_out(i+1, :) = x' ;
 end
-
-time = dt*(0:nIter-1)';
-
-t_out = time;
 
 %% COPYRIGHT NOTICE
 % 

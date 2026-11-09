@@ -11,8 +11,8 @@ function A = regular_lattice(n, k)
 %    k:       number of nearest neighbours (on each 'side')
 %
 % OUTPUT:
-%    A:       Sparse adjacency matrix, corresponding to the regular lattice, 
-%               containing 2*n*k edges.
+%    A:       Sparse symmetric adjacency matrix, corresponding to the regular
+%               lattice, which has n*k edges (2*n*k non-zero entries).
 %
 % See also ERDOS_RENYI, BARABASI_ALBERT.
 % 
@@ -22,7 +22,7 @@ dest = zeros(n*2*k, 1);
 for u = 1:n
     dest((u-1)*2*k+1:u*2*k) = mod([u-k:u-1 u+1:u+k]-1, n) + 1;
 end
-A = sparse(src, dest, 1);
+A = sparse(src, dest, 1, n, n);
 
 %% COPYRIGHT NOTICE
 % 

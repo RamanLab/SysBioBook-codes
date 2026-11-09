@@ -1,11 +1,11 @@
 function A = barabasi_albert(n)
-% BARABASI_ALBERT  Generates a Barabási–Albert scale-free random network G(n, p)
-%   A = barabasi_albert(n, p) generates a random network with n nodes by the 
+% BARABASI_ALBERT  Generates a Barabási–Albert scale-free random network
+%   A = barabasi_albert(n) generates a random network with n nodes by the 
 %         preferential attachment algorithm, beginning with a single edge 
 %         between two nodes.
 %
 % USAGE:
-%    A = barabasi_albert(n, p)
+%    A = barabasi_albert(n)
 %
 % INPUTS:
 %    n:       Number of nodes in the desired graph
@@ -22,12 +22,13 @@ i(1) = 1;
 degrees(1:2) = 1;
 for k = 3:n
     % add a node picking the node to connect to, randomly, based on degree
-    newLink = randsample(1:k-1, 1, true, degrees(1:k-1)); 
+    % (core MATLAB equivalent of randsample(1:k-1, 1, true, degrees(1:k-1)))
+    newLink = find(rand*sum(degrees(1:k-1)) < cumsum(degrees(1:k-1)), 1);
     degrees([newLink; k]) = degrees([newLink; k]) + 1; % update degrees
     i(k-1) = newLink;
 end
 
-A = sparse(i, 2:k, 1, n, n);
+A = sparse(i, (2:n)', 1, n, n);
 A = A + A';
 
 %% COPYRIGHT NOTICE
