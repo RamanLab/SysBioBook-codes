@@ -12,7 +12,7 @@ function A = regular_lattice(n, k)
 %
 % OUTPUT:
 %    A:       Sparse adjacency matrix, corresponding to the regular lattice, 
-%               containing 2*n*k edges.
+%               containing n*k edges.
 %
 % See also ERDOS_RENYI, BARABASI_ALBERT.
 % 
